@@ -10,7 +10,7 @@ python diamond_feature_extractor.py  $simulated_sequences.fasta $DIAMOND_output_
 The output of this script is saved to a directory called 'diamond_features' and called 'diamond_features.tsv'. This file contains rows with NAs that should be cleaned. Two more scripts should be run.
 The first one is normalization.py that normalizes the alignment_count feature with the length of the query sequence. The way to run it is:  
 ```    
- python normalization.py $DIAMOND_FEATURE_DATA_FRAME $path/to/simulated_fasta $output_file
+python normalization.py $DIAMOND_FEATURE_DATA_FRAME $path/to/simulated_fasta $output_file
 ```    
 The second script, class.py, is for creating the CLASS column. The way to run it is:  
 ```  
@@ -27,3 +27,12 @@ python machine_learning.py $path/to/diamond/merged/table $path/to/output $number
 The general_functions.py and the orphan_selector.py scripts contain functions that the two previous scripts use. 
 
 result_parsher.sh is a wrapper script that cleans the simulated fasta isolates the simulated orphans and runs the diamond_feature_extractor.py.
+
+If a similarity search matrix is already availiable and you want to run a model (or more) to make predictions for this matrix, run:
+
+```
+python run_the_models.py $/path/to/diamond/table $model
+```
+
+
+
