@@ -36,7 +36,7 @@ def main():
     diamond_features = pd.read_table(diamond_file, index_col=0)
     #sequence_features = pd.read_table(sequence_file, index_col=0)
     #normalize features (this has to be done manually, to prevent error with nan)
-    diamond_features = diamond_features.apply(zscore, axis = 1)
+    diamond_features = diamond_features.apply(zscore, axis = 0)
     #sequence_features = sequence_features.apply(zscore, axis = 1)
     #merge features
     #combined_features = pd.merge(diamond_features, sequence_features, left_index=True, right_index=True)
